@@ -1,15 +1,36 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-class TOdoTile extends StatefulWidget {
-  const TOdoTile({super.key});
+class TodoTile extends StatelessWidget {
+  final String taskName;
+  final bool taskCompleted;
+  Function(bool?)? onChanged;
+  TodoTile(
+      {super.key,
+      required this.onChanged,
+      required this.taskCompleted,
+      required this.taskName});
 
-  @override
-  State<TOdoTile> createState() => _TOdoTileState();
-}
-
-class _TOdoTileState extends State<TOdoTile> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Padding(
+      padding: const EdgeInsets.all(25.0),
+      child: Container(
+        padding: const EdgeInsets.all(24.0),
+        decoration: BoxDecoration(
+          color: Colors.yellow,
+          borderRadius: BorderRadius.circular(
+            12.0,
+          ),
+        ),
+        child: Row(
+          children: [
+            Checkbox(value: taskCompleted, onChanged: onChanged),
+            Text(
+              taskName,
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

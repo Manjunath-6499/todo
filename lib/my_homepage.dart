@@ -26,8 +26,17 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.yellow.shade500,
       ),
       body: ListView(
-        children: const [
-          TOdoTile(),
+        children: [
+          TodoTile(
+            onChanged: (p0) {},
+            taskCompleted: true,
+            taskName: "Make Tutorial",
+          ),
+          TodoTile(
+            onChanged: (p0) {},
+            taskCompleted: false,
+            taskName: "Flutter Course",
+          ),
         ],
       ),
     );
